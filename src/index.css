@@ -30,6 +30,17 @@ nav{
   padding: 1rem;
 }
 
+.navbar.light {
+  background-color: white;
+  color: grey;
+}
+
+
+.navbar.dark {
+  background-color: grey;
+  color: white;
+}
+
 a{
   color: #000;
   text-decoration: none;
