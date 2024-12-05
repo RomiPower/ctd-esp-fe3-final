@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
- //Aqui deberan implementar el form completo con sus validaciones
+ 
 const Form = () => {
   const [datosUsuario, setdatosUsuario] = useState({
     nombreCompleto: "",
@@ -12,6 +12,7 @@ const Form = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(datosUsuario.email, datosUsuario.nombreCompleto);
     if (
       datosUsuario.nombreCompleto.length > 5 &&
       emailRegex.test(datosUsuario.email)
@@ -43,8 +44,7 @@ const Form = () => {
               onChange={(event) =>
                 setdatosUsuario({ ...datosUsuario, email: event.target.value })
               }/>
-            <button>ENVIAR</button>
-    
+            <button>ENVIAR</button>  
             {mostrar && (
             <h4>Gracias {datosUsuario.nombreCompleto}, te contactaremos cuanto antes vía mail</h4>)}
             {error && (
