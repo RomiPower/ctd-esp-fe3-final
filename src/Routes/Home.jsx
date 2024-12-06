@@ -1,14 +1,13 @@
-import React, { useContext } from 'react'
+import React from 'react';
 import Card from '../Components/Card'
-import { Link } from 'react-router-dom';
-import {ContextGlobal} from '../Components/utils/global.context';
+import {useContextGlobal} from '../Components/utils/global.context';
 
 
 const Home = () => {
-  const {apiData,theme} = useContext(ContextGlobal);
+  const {state: {apiData, theme}} = useContextGlobal();
   
   return (
-    <main style={{backgroundColor:theme.background,color: theme.front}}>
+    <main>
       <h1>Home</h1>
       <div className='card-grid'>
         {apiData.map((user)=>(

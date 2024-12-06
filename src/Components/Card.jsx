@@ -1,22 +1,16 @@
-import {useContext} from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { ContextGlobal} from "./utils/global.context";
+import { useContextGlobal} from "./utils/global.context";
 
 
 const Card = ({ user }) => {
-  const { favorite, addFav, removeFav, apiData } = useContext(ContextGlobal);
+  const { dispatch, state } = useContextGlobal();
 
- 
-  const isFavorite = Array.isArray(favorite) && favorite.some(fav => fav.id === user.id);
-
+  const findFav = state.favs.some((fav) => fav.id === user.id);
+  console.log(findFav);
   const FavClick = () => {
-    if (isFavorite) {
-      removeFav(user.id); // Elimina el favorito
-    } else {
-      addFav(user); // Agrega a favoritos
-    }
+    dispatch({ type: findFav ? "DELETE_FAV" : "ADD_FAV", payload: user });
   };
-  
   
   return (
     <div className="card">
@@ -25,7 +19,7 @@ const Card = ({ user }) => {
       <h4>{user.username}</h4>
       </Link>
   
-        <button onClick={FavClick} className="favButton">Add fav</button>
+        <button onClick={FavClick} className="favButton">{findFav ? "Remove fav" : "Add fav" }</button>
     </div>
   );
 };

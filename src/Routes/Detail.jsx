@@ -1,18 +1,18 @@
-import React, { useEffect, useContext, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from "axios";
-import {ContextGlobal} from '../Components/utils/global.context';
+import { useContextGlobal } from '../Components/utils/global.context';
+
 
 const Detail = () => {
-  const {apiData,theme} = useContext(ContextGlobal);
+  const { state: { theme } } = useContextGlobal();
 
+  const [dentist, setDentist] = useState({});  
   const {id} =  useParams();
   console.log(id);
-
   const url = `https://jsonplaceholder.typicode.com/users/${id}`;
+ 
 
-  const [dentist, setDentist] = useState({});  // Mantener los datos específicos de un dentista
-  
   useEffect(() => {
     axios(url).then(({data}) => {
       console.log(data)
@@ -25,12 +25,12 @@ const Detail = () => {
   if (!dentist) return <div>Cargando...</div>;
 
   return (
-    <div style={{ backgroundColor: theme.background, color: theme.front }}>
+    <div>
       <h1>Información del dentista</h1>
-      <h2>{dentist.name}</h2>
-      <h2>{dentist.email}</h2>
-      <h3>{dentist.phone}</h3>
-      <h3>{dentist.website}</h3>
+      <h2>Nombre: {dentist.name}</h2>
+      <h2>Email: {dentist.email}</h2>
+      <h3>Teléfono: {dentist.phone}</h3>
+      <h3>Sitio web: {dentist.website}</h3>
     </div>
   );
 };

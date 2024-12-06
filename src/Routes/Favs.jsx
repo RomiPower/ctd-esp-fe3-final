@@ -1,15 +1,15 @@
-import {useContext} from "react";
 import Card from "../Components/Card";
-import { ContextGlobal} from '../Components/utils/global.context';
+import { useContextGlobal} from '../Components/utils/global.context';
 
 const Favs = () => {
-  const {theme, favorite, apiData} = useContext(ContextGlobal);
+  const {state: {favs, theme}} = useContextGlobal();
+  
   return (
     <>
-    <div style={{ backgroundColor: theme.background, color: theme.front }} >
+    <div >
       <h1>Dentists Favs</h1>
       <div className="card-grid">
-      {apiData.map((user)=>(
+      {favs.map((user)=>(
       <Card key={user.id} user={user} />
       ))}
       </div>

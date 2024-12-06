@@ -12,15 +12,18 @@ code {
     monospace;
 }
 .favButton{
-  background-color: rgba(136, 136, 136, 0.116);
+  background-color: rgba(165, 167, 172, 0.692);
   padding: 10px;
   border: none;
   width: 100%;
   cursor: pointer;
+  margin-top: auto;
+
 }
 
 h1{
   text-align: center;
+
 }
 
 nav{
@@ -30,25 +33,14 @@ nav{
   padding: 1rem;
 }
 
-.navbar.light {
-  background-color: white;
-  color: grey;
-}
-
-
-.navbar.dark {
-  background-color: grey;
-  color: white;
-}
-
 a{
-  color: #000;
+  color: #0b0338;
   text-decoration: none;
   margin: 5px;
   cursor: pointer;
 }
 a:hover{
-  color: rgb(136, 136, 136);
+  color: rgb(143, 141, 141);
 } 
 
 footer {
@@ -56,11 +48,12 @@ footer {
   justify-content: center;
   text-align: center;
   padding: 2rem;
-  position: relative;
+  position: absolute;
   bottom: 0;
-  width: 90%;
-  height: 40px;
+  width: 95%;
+  height: 20px;
   margin-top: 2rem;
+  background-color: aquamarine;
 }
 
 footer > img{
@@ -70,6 +63,7 @@ footer > img{
 footer > p{
   margin: 0;
   padding-top: 0.7rem;
+
 }
 
 form{
@@ -78,21 +72,23 @@ form{
   justify-content: space-around;
   width: 300px;
   height: 100px;
-  margin: 0 auto;
+  margin: auto;
+  padding: 50px 50px 50px 50px;
 }
 
 .card{
   display: flex;
-  justify-content: space-around;
+  justify-content:  space-evenly;
+  align-items: left;
   flex-direction: column;
-  align-items: center;
   width: 200px;
+  height: 180px;
   padding: 0.5rem 0.5rem 0 0.5rem;
   border: 0.5px solid rgb(136, 136, 136);
 }
 
 .card:hover{
-  border: 0.5px solid rgb(206, 217, 142);
+  border: 0.5px solid aquamarine;
 }
 
 .card-grid{
@@ -105,8 +101,12 @@ form{
   margin: 0 auto;
 }
 
+.card .favButton {
+  margin-bottom: 10px; 
+}
+
 table {
- border-collapse: collapse;
+  display: flex;
     border-spacing: 0;
     width: 100%;
     display: table;
@@ -130,4 +130,46 @@ tr:nth-child(even) {
 }
 .dark > a {
   color: white;
+}
+
+
+[theme="light"] {
+  --text-color-light: rgb(5, 53, 61);
+  --bg-color-light: white;
+  --link-color-light: rgb(64, 184, 178);
+}
+
+
+[theme="dark"] {
+  --text-color-dark: lightgrey;
+  --bg-color-dark: grey;
+  --link-color-dark: lightcyan;
+}
+
+body {
+  color: var(--text-color-light);
+  background-color: var(--bg-color-light);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: var(--link-color-light);
+}
+
+
+[theme="dark"] body {
+  color: var(--text-color-dark);
+  background-color: var(--bg-color-dark);
+}
+
+[theme="dark"] a {
+  color: var(--link-color-dark);
+}
+
+
+h1, h2, h3, h4 {
+  margin: 0;
+  padding: 0;
 }
