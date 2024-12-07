@@ -22,8 +22,6 @@ const Detail = () => {
     });
   }, [id]);
 
-  if (!dentist) return <div>Cargando...</div>;
-
   return (
     <div>
       <h1>Información del dentista</h1>

@@ -1,6 +1,4 @@
 import React, {useState} from "react";
-
-const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
  
 const Form = () => {
   const [datosUsuario, setdatosUsuario] = useState({
@@ -13,6 +11,8 @@ const Form = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(datosUsuario.email, datosUsuario.nombreCompleto);
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    
     if (
       datosUsuario.nombreCompleto.length > 5 &&
       emailRegex.test(datosUsuario.email)

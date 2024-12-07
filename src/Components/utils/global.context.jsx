@@ -15,12 +15,11 @@ const ContextProvider = ({ children }) => {
   
   const url= 'https://jsonplaceholder.typicode.com/users';
  
- 
   const setApiData = (data) => {
     dispatch({ type: "SET_API_DATA", payload: data });
   };
 
-   useEffect(() => {
+  useEffect(() => {
     axios(url).then((res) => {
       console.log(res.data);
       setApiData(res.data)
